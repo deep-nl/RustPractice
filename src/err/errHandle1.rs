@@ -7,11 +7,11 @@ struct SumError;
 
 fn to_int(s: &str) -> i32 {
     // method1: 
-    // s.parse().unwrap()
+    s.parse().unwrap()
     // method2: 
     // s.parse().expect("wrong parse")
     // method3: 
-    s.parse().unwrap_or(0)
+    // s.parse().unwrap_or(0)
 }
 
 // method4
@@ -81,6 +81,7 @@ fn sum_str_vec_4(strs: Vec<String>) -> Result<String, SumError> {
         // unwrap_or_else
         // accum += to_int_2(&s).unwrap_or_else(op)?;
     }
+    // todo!();
     Ok(accum.to_string())
 }
 

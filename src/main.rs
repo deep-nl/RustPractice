@@ -1,7 +1,8 @@
 #![allow(unused)]
-mod error;
+// mod err::thisError;
 use std::fs;
 use anyhow::anyhow;
+use deep::err::thisError;
 
 fn main() {
     // read_dir();
@@ -17,14 +18,14 @@ fn print_error(){
     println!("{}", err.backtrace()); // print backtrace
 }
 
-fn print1() -> Result<(),error::Error>{
+fn print1() -> Result<(),thisError::Error>{
     println!("Try to check current dir");
     for entry in fs::read_dir("./")?.filter_map(|e| e.ok()){
         let entry = entry
         .path()
         .to_str()
         .map(String::from)
-        .ok_or_else(|| error::Error::Generic(format!("Inval path")))?; // 对比一下加？与不加？的差别
+        .ok_or_else(|| thisError::Error::Generic(format!("Inval path")))?; // 对比一下加？与不加？的差别
         println!("{entry:?}");
     }
     Ok(())

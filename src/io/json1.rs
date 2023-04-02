@@ -3,9 +3,6 @@ use std::io;
 use std::fs::{self, File, DirEntry};
 use std::path::Path;
 
-#[derive(Debug)]
-struct MyError;
-
 pub fn read_json<T>(file_name: &str) -> Result<T, Box<dyn std::error::Error>>
 where
     T: de::DeserializeOwned,

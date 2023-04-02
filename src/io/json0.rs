@@ -30,7 +30,7 @@ struct MissyFoodSchedule {
     missy_food_schedule: Vec<Schedule>,
 }
 
-const TEST_JSON_FILE: &str = include_str!("../test_data/missy_secrets.json");
+const TEST_JSON_FILE: &str = include_str!("../data/missy_secrets.json");
 
 fn dynamic_json_parse() {
     // Get the filenames from the command line.

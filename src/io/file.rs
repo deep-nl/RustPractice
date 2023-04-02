@@ -1,5 +1,24 @@
 use std::{fs, io};
 
+pub fn read_file(name: &str) -> Result<(), Box<dyn std::error::Error>> {
+    let f = fs::File::open(name);
+    let ff = match f {
+        Ok(file) => file,
+        // 简单粗暴
+        // Err(e) => {panic!("error")}
+        Err(err) => match err.kind() {
+            io::ErrorKind::NotFound => match fs::File::create(name) {
+                Ok(fc) => fc,
+                Err(e) => panic!("Panic:{:?}", e)
+            },
+            some_error => {
+                panic!("Panic:{:?}", some_error)
+            }
+        }
+    };
+    Ok(())
+}
+
 pub fn read_dir() -> io::Result<()> {
     let mut entries = fs::read_dir(".")?
         .map(|res| res.map(|e| e.path()))
@@ -29,4 +48,9 @@ pub fn read_dir() -> io::Result<()> {
 #[test]
 fn test_read_dir(){
     read_dir();
+}
+
+#[test]
+fn test_read_file(){
+    read_file("wooo");
 }

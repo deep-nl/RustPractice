@@ -1,11 +1,5 @@
 // pub mod study;
 #![allow(unused)]
-use crate::study;
-
-fn main(){
-    // study::run();
-    check();
-}
 
 fn check(){
     let results = [Ok(1), Err("nope"), Ok(3), Err("bad")];
@@ -65,6 +59,11 @@ fn filter2(){
 fn inspect(){
     let a = [1, 4, 2, 3];
 
+    let sum_ = a.iter()
+        .clone()
+        .filter(|x|*x%2 ==0)
+        .fold(0, |sum,i|sum+i);
+
     // this iterator sequence is complex.
     let sum = a.iter()
         .cloned()
@@ -82,4 +81,9 @@ fn inspect(){
         .fold(0, |sum, i| sum + i);
 
     println!("{sum}");
+}
+
+#[test]
+fn test_inspect(){
+    inspect()
 }

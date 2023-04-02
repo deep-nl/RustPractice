@@ -51,6 +51,7 @@ fn getLine() -> String {
     return line;
 }
 
+#[test]
 pub fn test_uniswap() {
     // Statements here are executed when the compiled binary is called
     let token1 = Token{name: String::from("FLUX"), symbol: String::from("FLX"), decimals: 6};

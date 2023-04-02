@@ -23,6 +23,7 @@ pub fn read_username_from_file() -> Result<String, io::Error> {
         Err(e) => Err(e),
     }
 }
+
 fn read_username_from_file2() -> Result<String, io::Error> {
     let current_dir = env::current_dir().unwrap();
     println!("Current directory: {}", current_dir.display());

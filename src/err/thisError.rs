@@ -1,5 +1,6 @@
 #[derive(thiserror::Error,Debug)]
 // 常规的错误处理机制
+// https://juejin.cn/post/7097023377864392718#heading-9
 pub enum Error {
     #[error("Generic {0}")]
     Generic(String),
