@@ -32,11 +32,11 @@ fn filter(){
     // Because the closure passed to filter() takes a reference, and many iterators iterate over references, 
     // this leads to a possibly confusing situation, where the type of the closure is a double reference:
     let mut filter_iter = a.iter().filter(|x| **x > 1); // need two *s!
-    // compare with map
-    let mut map_iter = b.iter().map(|x| 2 * x); 
     // It’s common to instead use destructuring on the argument to strip away one:
     let mut filter_iter2 = a.iter().filter(|&x| *x > 1); // both & and *
     let mut filter_iter3 = a.iter().filter(|&&x| x > 1); // both & and *
+    // compare with map
+    let mut map_iter = b.iter().map(|x| 2 * x); 
 
     assert_eq!(filter_iter.next(), Some(&2));
     assert_eq!(filter_iter.next(), None);
