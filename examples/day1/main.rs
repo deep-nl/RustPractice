@@ -25,6 +25,7 @@ pub fn func2() {
         .split("\n\n")
         .map(|e| e.lines().map(|c| c.parse::<u32>().unwrap()).sum())
         .collect::<Vec<u32>>();
+    // sort
     cals.sort_unstable();
     println!("Method2's answer is {}", cals.into_iter().rev().take(1).sum::<u32>());
 }
@@ -70,7 +71,8 @@ where
 
     fn next(&mut self) -> Option<Self::Item> {
         // 跳过空行
-        let mut items = (&mut self.items).skip_while(|calories| matches!(calories, Ok(None)));
+        let mut items = (&mut self.items)
+            .skip_while(|calories| matches!(calories, Ok(None)));
         let mut sum = None;
         loop {
             match items.next() {

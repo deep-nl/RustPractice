@@ -9,7 +9,7 @@ pub mod traits;
 pub mod log;
 pub mod idiomatic;
 
-pub mod tok;
+pub mod tokio;
 pub mod threads;
 
 pub mod hex;
