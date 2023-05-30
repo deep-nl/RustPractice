@@ -10,7 +10,8 @@ $ system-update --please --pretty-please-with-sugar-on-top
 Error: No space left on device
 Perhaps you can delete some files to make space for the update?
 
-You browse around the filesystem to assess the situation and save the resulting terminal output (your puzzle input). For example:
+You browse around the filesystem to assess the situation and save the resulting terminal output (your puzzle input). 
+For example:
 
 ```text
 $ cd /
@@ -50,6 +51,7 @@ ls means list. It prints out all of the files and directories immediately contai
 123 abc means that the current directory contains a file named abc with size 123.
 dir xyz means that the current directory contains a directory named xyz.
 Given the commands and output in the example above, you can determine that the filesystem looks visually like this:
+
 ```text
 - / (dir)
   - a (dir)
@@ -66,6 +68,7 @@ Given the commands and output in the example above, you can determine that the f
     - d.ext (file, size=5626152)
     - k (file, size=7214296)
 ```
+
 Here, there are four directories: / (the outermost directory), a and d (which are in /), and e (which is in a). These directories also contain files of various sizes.
 
 Since the disk is full, your first step should probably be to find directories that are good candidates for deletion. To do this, you need to determine the total size of each directory. The total size of a directory is the sum of the sizes of the files it contains, directly or indirectly. (Directories themselves do not count as having any intrinsic size.)
@@ -74,8 +77,11 @@ The total sizes of the directories above can be found as follows:
 
 The total size of directory e is 584 because it contains a single file i of size 584 and no other directories.
 The directory a has total size 94853 because it contains files f (size 29116), g (size 2557), and h.lst (size 62596), plus file i indirectly (a contains e which contains i).
+
 Directory d has total size 24933642.
+
 As the outermost directory, / contains every file. Its total size is 48381165, the sum of the size of every file.
+
 To begin, find all of the directories with a total size of at most 100000, then calculate the sum of their total sizes. In the example above, these directories are a and e; the sum of their total sizes is 95437 (94853 + 584). (As in this example, this process can count files more than once!)
 
 Find all of the directories with a total size of at most 100000. What is the sum of the total sizes of those directories?

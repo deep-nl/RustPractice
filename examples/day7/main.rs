@@ -20,6 +20,7 @@ fn sh1(lines: &mut Peekable<impl Iterator<Item = &'static [u8]>>, sum: &mut u64)
         match i {
             b"$ cd .." => break,
             _ if &i[0..3] == b"$ l" => {
+                // from_fn next_if 
                 size = std::iter::from_fn(|| lines.next_if(|i| i[0] != b'$'))
                     .filter(|i| i[0] != b'd')
                     .filter_map(|i| atoi::atoi::<u64>(i.split(|b| b == &b' ').next().unwrap()))

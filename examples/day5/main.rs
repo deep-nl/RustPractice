@@ -12,7 +12,10 @@ fn main() {
 
 pub fn func1() {
     let d = include_bytes!("input.txt");
-    let (b, m) = d.split_at(d.windows(2).position(|b| b == b"\n\n").unwrap() + 2);
+    let (b, m) = d
+            .split_at(d.windows(2)
+            .position(|b| b == b"\n\n").unwrap() + 2);
+
     let mut s: [Vec<u8>; STACKS] = Default::default();
 
     b.split(|b| b == &b'\n').rev().skip(1).for_each(|l| {
@@ -80,4 +83,12 @@ pub fn func2() {
 
 pub fn func3() {
     todo!()
+}
+
+#[test]
+fn test_input() {
+    let d = include_bytes!("input_segment.txt");
+    let (b, m) = d.split_at(d.windows(2).position(|b| b == b"\n\n").unwrap() + 2);
+    println!("{:?}",b);
+    let (mut s, mut swp): ([Vec<u8>; STACKS], _) = (Default::default(), [0; SWP]);
 }

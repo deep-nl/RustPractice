@@ -8,6 +8,7 @@ fn main() {
     func3();
 }
 
+// usage of any
 pub fn func1() {
     println!(
         "{}",
@@ -18,6 +19,7 @@ pub fn func1() {
             + 4,
     );
 }
+
 
 pub fn func2() {
     let mut i = 0;
@@ -60,6 +62,7 @@ fn run() -> anyhow::Result<()> {
     Ok(())
 }
 
+// usage of all
 fn find_marker(signals: &[char], size: usize) -> Option<usize> {
     signals
         .windows(size)

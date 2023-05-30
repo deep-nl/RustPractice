@@ -11,8 +11,9 @@ fn main() {
 pub fn func1() {
     println!(
         "{}",
-        include_bytes!("input.txt")
+        include_bytes!("./input.txt")
             .split(|b| *b == b'\n')
+            // split at
             .map(|l| l.split_at(l.len() / 2))
             .map(|(a, b)| b
                 .iter()
