@@ -6,8 +6,17 @@ use deep::err::thisError;
 
 fn main() {
     // read_dir();
-    print1();
+    // print1();
     // print_error();
+    let mut abc = vec![10, 20, 30];
+
+    let mut bcd = vec![20, 30, 40];
+
+    let cde = abc.append(&mut bcd);
+    let efg = abc.extend(&mut bcd);
+
+    println!("{:?}", cde);
+    println!("{:?}", abc);
 }
 // mod preclude;
 
